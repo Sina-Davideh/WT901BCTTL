@@ -1,0 +1,2 @@
+../Core/Src/wt901.c:12:6:WT901_Init	16	static
+../Core/Src/wt901.c:16:6:WT901_Transmit_Message	24	static

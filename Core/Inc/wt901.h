@@ -278,6 +278,21 @@ typedef enum{
  * Receive Message Structure
  */
 
+typedef struct{
+    uint8_t First_Byte_Receive;
+    uint8_t Message_Address_Receive;
+    uint8_t Data_Byte_0;
+    uint8_t Data_Byte_1;
+    uint8_t Data_Byte_2;
+    uint8_t Data_Byte_3;
+    uint8_t Data_Byte_4;
+    uint8_t Data_Byte_5;
+    uint8_t Data_Byte_6;
+    uint8_t Data_Byte_7;
+    uint8_t Checksum;
+} Receive_Message_Struct_t;
+
+
 /* Time Output structure */
 /* Calculation formula:
  * Millisecond：ms=((msH<<8)|msL).
@@ -295,7 +310,20 @@ typedef struct{
     uint8_t msL;        /* ms：Millisecond Low byte data */
     uint8_t msH;        /* ms：Millisecond High byte data */
     uint8_t SUM;        /* Data Checksum */
+} Time_Output_Reg_Struct_t;
+
+typedef struct{
+	Time_Output_Reg_Struct_t Registers;
+	uint16_t Year;
+	uint8_t Month;
+	uint8_t Day;
+	uint8_t Hour;
+	uint8_t Minute;
+	uint8_t Second;
+	uint16_t Millisecond;
+	float Seconds;
 } Time_Output_Struct_t;
+
 
 
 /* Acceleration Output structure */
@@ -314,11 +342,20 @@ typedef struct{
     uint8_t AyL;        /* AyL：Acceleration in Y-Axis direction Low byte data */
     uint8_t AyH;        /* AyH：Acceleration in Y-Axis direction High byte data */
     uint8_t AzL;        /* AzL：Acceleration in Z-Axis direction Low byte data */
-    uint8_t AzH;        /* AzH: Acceleration in Z-Axis direction High byte data */
+    uint8_t AzH;        /* AzH:Acceleration in Z-Axis direction High byte data */
     uint8_t TL;         /* TL：Temperature Low byte data */
     uint8_t TH;         /* TH：Temperature High byte data */
     uint8_t SUM;        /* Data Checksum */
+} Acceleration_Output_Reg_Struct_t;
+
+typedef struct{
+	Acceleration_Output_Reg_Struct_t Registers;
+	uint16_t X_Acceleration;
+	uint16_t Y_Acceleration;
+	uint16_t Z_Acceleration;
+	uint16_t Temperature;
 } Acceleration_Output_Struct_t;
+
 
 
 /* Angular Velocity Output structure */
@@ -337,11 +374,20 @@ typedef struct{
     uint8_t WyL;        /* WyL：Angular Velocity in Y-Axis direction Low byte data */
     uint8_t WyH;        /* WyH：Angular Velocity in Y-Axis direction High byte data */
     uint8_t WzL;        /* WzL：Angular Velocity in Z-Axis direction Low byte data */
-    uint8_t WzH;        /* WzH: Angular Velocity in Z-Axis direction High byte data */
+    uint8_t WzH;        /* WzH:Angular Velocity in Z-Axis direction High byte data */
     uint8_t TL;         /* TL：Temperature Low byte data */
     uint8_t TH;         /* TH：Temperature High byte data */
     uint8_t SUM;        /* Data Checksum */
+} Angular_Velocity_Output_Reg_Struct_t;
+
+typedef struct{
+	Angular_Velocity_Output_Reg_Struct_t Registers;
+	uint16_t X_Angular_Velocity;
+	uint16_t Y_Angular_Velocity;
+	uint16_t Z_Angular_Velocity;
+	uint16_t Temperature;
 } Angular_Velocity_Output_Struct_t;
+
 
 
 /* Angle Output structure */
@@ -360,11 +406,20 @@ typedef struct{
     uint8_t PitchL;     /* PitchL：Pitch Angle Low byte data */
     uint8_t PitchH;     /* PitchH：Pitch Angle High byte data */
     uint8_t YawL;       /* YawL：Yaw Angle Low byte data */
-    uint8_t YawH;       /* YawH: Yaw Angle High byte data */
+    uint8_t YawH;       /* YawH:Yaw Angle High byte data */
     uint8_t TL;         /* TL：Temperature Low byte data */
     uint8_t TH;         /* TH：Temperature High byte data */
     uint8_t SUM;        /* Data Checksum */
+} Angle_Output_Reg_Struct_t;
+
+typedef struct{
+	Angle_Output_Reg_Struct_t Registers;
+	uint16_t Roll;
+	uint16_t Pitch;
+	uint16_t Yaw;
+	uint16_t Temperature;
 } Angle_Output_Struct_t;
+
 
 
 /* Magnetic Output structure */
@@ -383,11 +438,20 @@ typedef struct{
     uint8_t HyL;        /* HyL：Magnetic field in Y-Axis direction Low byte data */
     uint8_t HyH;        /* HyH：Magnetic field in Y-Axis direction High byte data */
     uint8_t HzL;        /* HzL：Magnetic field in Z-Axis direction Low byte data */
-    uint8_t HzH;        /* HzH: Magnetic field in Z-Axis direction High byte data */
+    uint8_t HzH;        /* HzH:Magnetic field in Z-Axis direction High byte data */
     uint8_t TL;         /* TL：Temperature Low byte data */
     uint8_t TH;         /* TH：Temperature High byte data */
     uint8_t SUM;        /* Data Checksum */
+} Magnetic_Output_Reg_Struct_t;
+
+typedef struct{
+	Magnetic_Output_Reg_Struct_t Registers;
+	uint16_t X_Magnetic;
+	uint16_t Y_Magnetic;
+	uint16_t Z_Magnetic;
+	uint16_t Temperature;
 } Magnetic_Output_Struct_t;
+
 
 
 /* Data output port status structure */
@@ -406,11 +470,11 @@ typedef struct{
     uint8_t D1L;        /* D1L：Data Output Port 1 Status Low byte data */
     uint8_t D1H;        /* D1H：Data Output Port 1 Status High byte data */
     uint8_t D2L;        /* D2L：Data Output Port 2 Status Low byte data */
-    uint8_t D2H;        /* D2H: Data Output Port 2 Status High byte data */
+    uint8_t D2H;        /* D2H:Data Output Port 2 Status High byte data */
     uint8_t D3L;        /* D3L：Data Output Port 3 Status Low byte data */
     uint8_t D3H;        /* D3H：Data Output Port 3 Status High byte data */
     uint8_t SUM;        /* Data Checksum */
-} Data_Output_Port_Status_Struct_t;
+} Data_Output_Port_Status_Reg_Struct_t;
 
 /* Note:
  * Analog input port mode:
@@ -432,6 +496,15 @@ typedef struct{
  * the unit is us.
 */
 
+typedef struct{
+	Data_Output_Port_Status_Reg_Struct_t Registers;
+	uint16_t Port_0;
+	uint16_t Port_1;
+	uint16_t Port_2;
+	uint16_t Port_3;
+} Data_Output_Port_Status_Struct_t;
+
+
 
 /* Atmospheric Pressure and Height Output structure */
 /* Calculation formular:
@@ -447,11 +520,18 @@ typedef struct{
     uint8_t P2;         /* P2：Atmospheric Pressure byte 3 of 4-byte data */
     uint8_t P3;         /* P3：Atmospheric Pressure byte 4 of 4-byte data */
     uint8_t H0;         /* H0：Height byte 1 of 4-byte data */
-    uint8_t H1;         /* H1: Height byte 2 of 4-byte data */
+    uint8_t H1;         /* H1:Height byte 2 of 4-byte data */
     uint8_t H2;         /* H2：Height byte 3 of 4-byte data */
     uint8_t H3;         /* H3：Height byte 4 of 4-byte data */
     uint8_t SUM;        /* Data Checksum */
+} Atmospheric_Pressure_Height_Output_Reg_Struct_t;
+
+typedef struct{
+	Atmospheric_Pressure_Height_Output_Reg_Struct_t Registers;
+	uint32_t Atmospheric_Pressure;
+	uint32_t Height;
 } Atmospheric_Pressure_Height_Output_Struct_t;
+
 
 
 /* Longitude and Latitude Output structure */
@@ -468,11 +548,11 @@ typedef struct{
     uint8_t Lon2;       /* P2：Longitude byte 3 of 4-byte data */
     uint8_t Lon3;       /* P3：Longitude byte 4 of 4-byte data */
     uint8_t Lat0;       /* H0：Latitude byte 1 of 4-byte data */
-    uint8_t Lat1;       /* H1: Latitude byte 2 of 4-byte data */
+    uint8_t Lat1;       /* H1:Latitude byte 2 of 4-byte data */
     uint8_t Lat2;       /* H2：Latitude byte 3 of 4-byte data */
     uint8_t Lat3;       /* H3：Latitude byte 4 of 4-byte data */
     uint8_t SUM;        /* Data Checksum */
-} Longitude_Latitude_Output_Struct_t;
+} Longitude_Latitude_Output_Reg_Struct_t;
 
  /* Note:
  * In NMEA0183 standard, GPS output format is ddmm.mmmmm (dd for the degree,mm.mmmmm is after decimal point),
@@ -485,6 +565,13 @@ typedef struct{
  * dd=Lat/100000000;
  * mm.mmmmm=(Lat%10000000)/100000；(% calculate Remainder)
  */
+
+typedef struct{
+	Longitude_Latitude_Output_Reg_Struct_t Registers;
+	uint32_t Longitude;
+	uint32_t Latitude;
+} Longitude_Latitude_Output_Struct_t;
+
 
 
 /* Ground Speed Output structure */
@@ -502,11 +589,19 @@ typedef struct{
     uint8_t GPSYawL;    /* GPSYawL：GPS Yaw Low byte data */
     uint8_t GPSYawH;    /* GPSYawH：GPS Yaw High byte data */
     uint8_t GPSV0;      /* GPSV0：GPS Velocity byte 1 of 4-byte data */
-    uint8_t GPSV1;      /* GPSV1: GPS Velocity byte 2 of 4-byte data */
+    uint8_t GPSV1;      /* GPSV1:GPS Velocity byte 2 of 4-byte data */
     uint8_t GPSV2;      /* GPSV2：GPS Velocity byte 3 of 4-byte data */
     uint8_t GPSV3;      /* GPSV3：GPS Velocity byte 4 of 4-byte data */
     uint8_t SUM;        /* Data Checksum */
+} Ground_Speed_Output_Reg_Struct_t;
+
+typedef struct{
+	Ground_Speed_Output_Reg_Struct_t Registers;
+	uint16_t GPS_Height;
+	uint16_t GPS_Yaw;
+	uint32_t GPS_Velocity;
 } Ground_Speed_Output_Struct_t;
+
 
 
 /* Quaternion structure */
@@ -525,11 +620,20 @@ typedef struct{
     uint8_t Q1L;        /* Q1L：Quaternion 1 Low byte data */
     uint8_t Q1H;        /* Q1H：Quaternion 1 High byte data */
     uint8_t Q2L;        /* Q2L：Quaternion 2 Low byte data */
-    uint8_t Q2H;        /* Q2H: Quaternion 2 High byte data */
+    uint8_t Q2H;        /* Q2H:Quaternion 2 High byte data */
     uint8_t Q3L;        /* Q3L：Quaternion 3 Low byte data */
     uint8_t Q3H;        /* Q3H：Quaternion 3 High byte data */
     uint8_t SUM;        /* Data Checksum */
+} Quaternion_Reg_Struct_t;
+
+typedef struct{
+	Quaternion_Reg_Struct_t Registers;
+	uint16_t Quaternion_0;
+	uint16_t Quaternion_1;
+	uint16_t Quaternion_2;
+	uint16_t Quaternion_3;
 } Quaternion_Struct_t;
+
 
 
 /* Satellite Positioning Accuracy Output structure */
@@ -548,11 +652,37 @@ typedef struct{
     uint8_t PDOPL;      /* PDOPL：Location positioning accuracy Low byte data */
     uint8_t PDOPH;      /* PDOPH：Location positioning accuracy High byte data */
     uint8_t HDOPL;      /* HDOPL：Horizontal positioning accuracy Low byte data */
-    uint8_t HDOPH;      /* HDOPH: Horizontal positioning accuracy High byte data */
+    uint8_t HDOPH;      /* HDOPH:Horizontal positioning accuracy High byte data */
     uint8_t VDOPL;      /* VDOPL：Vertical positioning accuracy Low byte data */
     uint8_t VDOPH;      /* VDOPH：Vertical positioning accuracy High byte data */
     uint8_t SUM;        /* Data Checksum */
+} Satellite_Positioning_Accuracy_Output_Reg_Struct_t;
+
+typedef struct{
+	Satellite_Positioning_Accuracy_Output_Reg_Struct_t Registers;
+	uint16_t SN;
+	uint16_t PDOP;
+	uint16_t HDOP;
+	uint16_t VDOP;
 } Satellite_Positioning_Accuracy_Output_Struct_t;
+
+
+
+/* Integration all output data in unit Structure for easy accessibility */
+typedef struct{
+	Time_Output_Struct_t Time;
+	Acceleration_Output_Struct_t Acceleration;
+	Angular_Velocity_Output_Struct_t Angular_Velocity;
+	Angle_Output_Struct_t Angle;
+	Magnetic_Output_Struct_t Magnetic;
+	Data_Output_Port_Status_Struct_t Data_Port_Status;
+	Atmospheric_Pressure_Height_Output_Struct_t Atmospheric_Pressure_Height;
+	Longitude_Latitude_Output_Struct_t Longitude_Latitude;
+	Ground_Speed_Output_Struct_t Ground_Speed;
+	Quaternion_Struct_t Quaternion;
+	Satellite_Positioning_Accuracy_Output_Struct_t Satellite_Positioning_Accuracy;
+} Module_Output_Data_Struct_t;
+
 
 
 /*
@@ -945,5 +1075,19 @@ typedef struct
  */
 void WT901_Init(Transmit_Messages_Structure_t *Transmit_msgs);
 void WT901_Transmit_Message(UART_HandleTypeDef *huart, Transmit_Message_Struct_t *Transmit_msg);
+void WT901_Receive_Message(UART_HandleTypeDef *huart, Transmit_Message_Struct_t *Transmit_msg, Receive_Message_Struct_t *Receive_msg);
+
+void WT901_Get_Time(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Acceleration(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Angular_Velocity(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Angle(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Magnetic(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Data_Port_Status(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Atmospheric_Pressure_Height(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Longitude_Latitude(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Ground_Speed(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Quaternion(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+void WT901_Get_Satellite_Positioning_Accuracy(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
+
 
 #endif /* INC_WT901_H_ */

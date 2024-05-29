@@ -36,7 +36,10 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+typedef enum{
+	False = 0,
+	True,
+} Bool;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -65,6 +68,12 @@ void Error_Handler(void);
 #define LED0_GPIO_Port GPIOF
 #define LED1_Pin GPIO_PIN_10
 #define LED1_GPIO_Port GPIOF
+#define BLUE_Signal_LED_Pin GPIO_PIN_14
+#define BLUE_Signal_LED_GPIO_Port GPIOE
+#define GREEN_Signal_LED_Pin GPIO_PIN_15
+#define GREEN_Signal_LED_GPIO_Port GPIOE
+#define RED_Signal_LED_Pin GPIO_PIN_13
+#define RED_Signal_LED_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

@@ -832,7 +832,8 @@ typedef struct{
     Zero_e Empty;
 } LED_Struct_t;
 
-typedef struct{
+typedef struct
+{
     uint8_t First_Byte_Transmit;
     uint8_t Second_Byte_Transmit;
     Transmit_Message_Addr_e Address;
@@ -879,12 +880,62 @@ typedef struct
 } Transmit_Messages_Structure_t;
 
 
+
+/*
+ * Module configuration Structure
+ */
+
+typedef struct
+{
+	uint8_t		RX_Buffer[11];
+	uint8_t		TX_Buffer[5];
+}Data_Buffer_Struct_t;
+
+
+
+/*
+ * Module configuration Structure
+ */
+
+typedef enum
+{
+	Normal_Mode = 0,
+	Interrupt_Mode,
+	Direct_Memory_Access_Mode
+} Communication_Mode_e;
+
+typedef struct
+{
+	I2C_HandleTypeDef		*I2C_BUS_Handler;
+	Communication_Mode_e	I2C_Communication_Mode;
+	uint8_t					I2C_Device_Address;
+} I2C_Communication_Struct_t;
+
+typedef struct
+{
+	UART_HandleTypeDef		*UART_BUS_Handler;
+	Communication_Mode_e	UART_Communication_Mode;
+} UART_Communication_Struct_t;
+
+typedef struct{
+	I2C_Communication_Struct_t	WT_I2C;
+	UART_Communication_Struct_t	WT_UART;
+} Module_Config_Struct_t;
+
+typedef struct{
+	Transmit_Messages_Structure_t Transmit_Messages;
+	Module_Output_Data_Struct_t Receive_Messages;
+	Module_Config_Struct_t Config;
+	Data_Buffer_Struct_t Buffer;
+} WT901_AHRS_Structure_t;
+
 /*
  *   Function's structure definition
  */
 void WT901_Init(Transmit_Messages_Structure_t *Transmit_msgs);
 void WT901_Transmit_Message(UART_HandleTypeDef *huart, Transmit_Message_Struct_t *Transmit_msg);
 void WT901_Receive_Message(UART_HandleTypeDef *huart, Transmit_Message_Struct_t *Transmit_msg, Receive_Message_Struct_t *Receive_msg);
+void WT901_Update_Message(void);
 
 void WT901_Get_Time(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);
 void WT901_Get_Acceleration(UART_HandleTypeDef *huart, Receive_Message_Struct_t *Receive_msg);

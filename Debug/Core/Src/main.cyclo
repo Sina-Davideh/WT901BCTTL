@@ -8,5 +8,4 @@
 ../Core/Src/main.c:346:13:MX_USART3_UART_Init	2
 ../Core/Src/main.c:377:13:MX_DMA_Init	1
 ../Core/Src/main.c:405:13:MX_GPIO_Init	1
-../Core/Src/main.c:471:13:WT901_Update_Message	30
-../Core/Src/main.c:736:6:Error_Handler	1
+../Core/Src/main.c:478:6:Error_Handler	1

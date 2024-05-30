@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "WT901BCTTL.h"
+//#include "WT901BCTTL.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -76,6 +76,7 @@ DMA_HandleTypeDef hdma_usart1_tx;
 DMA_HandleTypeDef hdma_usart3_rx;
 DMA_HandleTypeDef hdma_usart3_tx;
 
+
 /* USER CODE BEGIN PV */
 //uint8_t CH340_TX_Buffer[64] = "ch340 test message\n";
 uint8_t CH340_TX_Buffer[64] = {0x00};
@@ -96,7 +97,6 @@ uint8_t WT901_TX_Ret[5] = {0xFF, 0xAA, 0x02, 0x5E, 0x00};
 
 WT901_Time_Str_t WT901_Time;
 WT901_Acceleration_Str_t WT901_Acceleration;
-Module_Output_Data_Struct_t WT901_Out_msg;
 
 Bool Timer_200Hz_Trig = False;
 

@@ -417,7 +417,7 @@ typedef struct{
 /*
  *   Function's structure definition
  */
-void WT901_Init(void);
+//void WT901_Init(void);
 //void WT901_Transmit_Message(UART_HandleTypeDef *huart, Transmit_Message_Struct_t *Transmit_msg);
 //void WT901_Receive_Message(UART_HandleTypeDef *huart, Transmit_Message_Struct_t *Transmit_msg, Receive_Message_Struct_t *Receive_msg);
 //void AHRS_Update_Message(void);

@@ -1,2 +1,1 @@
-../Core/Src/AHRS_Module.c:14:6:WT901_Init	4	static
 ../Core/Src/AHRS_Module.c:28:6:AHRS_Update_Message	8	static
